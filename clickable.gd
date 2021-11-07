@@ -10,15 +10,12 @@ extends Area2D
 func _ready():
 	pass # Replace with function body.
 
-var join_scene = preload("res://join_scene/join.tscn")
-
-
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			var node = join_scene.instance()
-			node.position = event.position
-			get_node('/root/main').add_child(node)
+			get_node("/root/main").selected = get_parent()
+			print(get_node("/root/main").selected)
 
-func _process(delta):
-	pass
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
